@@ -1,9 +1,8 @@
 package io.quarkus.telegram.bots.core.model;
 
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * This object represents one button of the reply keyboard.
@@ -12,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @see <a href="https://core.telegram.org/bots/api#keyboardbutton">Telegram Bot API</a>
  */
+@TelegramApiModel
 public class KeyboardButton {
 
     /**
@@ -19,7 +19,6 @@ public class KeyboardButton {
      * when the button is pressed.
      */
     @NotNull
-    @JsonProperty("text")
     public String text;
 
     /**
@@ -27,7 +26,6 @@ public class KeyboardButton {
      * Available in private chats only.
      */
     @Nullable
-    @JsonProperty("request_contact")
     public Boolean requestContact;
 
     /**
@@ -35,7 +33,6 @@ public class KeyboardButton {
      * Available in private chats only
      */
     @Nullable
-    @JsonProperty("request_location")
     public Boolean requestLocation;
 
     /**
@@ -43,6 +40,5 @@ public class KeyboardButton {
      * is pressed. Available in private chats only
      */
     @Nullable
-    @JsonProperty("request_location")
     public KeyboardButtonPollType requestPoll;
 }

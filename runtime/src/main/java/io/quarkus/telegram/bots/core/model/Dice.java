@@ -1,11 +1,10 @@
 package io.quarkus.telegram.bots.core.model;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 import org.jetbrains.annotations.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 /**
  * This object represents a dice with random value from 1 to 6. (Yes, we're aware of the “proper”
@@ -13,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @see <a href="https://core.telegram.org/bots/api#dice">Telegram Bot API</a>
  */
+@TelegramApiModel
 public class Dice {
 
     /**
@@ -21,6 +21,6 @@ public class Dice {
     @NotNull
     @Min(1)
     @Max(6)
-    @JsonProperty("value")
+
     public Integer value;
 }

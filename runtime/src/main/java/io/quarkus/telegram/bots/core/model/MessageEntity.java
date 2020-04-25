@@ -1,9 +1,8 @@
 package io.quarkus.telegram.bots.core.model;
 
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * This object represents one special entity in a text message. For example, hashtags, usernames,
@@ -11,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @see <a href="https://core.telegram.org/bots/api#messageentity">Telegram Bot API</a>
  */
+@TelegramApiModel
 public class MessageEntity {
 
     /**
@@ -22,41 +22,35 @@ public class MessageEntity {
      * “text_mention” (for users <a href="https://telegram.org/blog/edit#new-mentions">without usernames</a>)
      */
     @NotNull
-    @JsonProperty("type")
     public String type;
 
     /**
      * Offset in UTF-16 code units to the start of the entity
      */
     @NotNull
-    @JsonProperty("offset")
     public Integer offset;
 
     /**
      * Length of the entity in UTF-16 code units
      */
     @NotNull
-    @JsonProperty("length")
     public Integer length;
 
     /**
      * For “text_link” only, url that will be opened after user taps on the text
      */
     @Nullable
-    @JsonProperty("url")
     public String url;
 
     /**
      * For “text_mention” only, the mentioned user
      */
     @Nullable
-    @JsonProperty("user")
     public User user;
 
     /**
      * For “pre” only, the programming language of the entity text
      */
     @Nullable
-    @JsonProperty("language")
     public String language;
 }

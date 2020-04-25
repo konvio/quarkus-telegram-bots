@@ -1,57 +1,51 @@
 package io.quarkus.telegram.bots.core.model;
 
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * This object represents a chat.
  *
  * @see <a href="https://core.telegram.org/bots/api#chat">Telegram Bot API</a>
  */
+@TelegramApiModel
 public class Chat {
 
     /**
      * Unique identifier for this chat
      */
     @NotNull
-    @JsonProperty("id")
     public Long id;
 
     /**
      * Type of chat, can be either “private”, “group”, “supergroup” or “channel”
      */
     @NotNull
-    @JsonProperty("type")
     public String type;
 
     /**
      * Title, for supergroups, channels and group chats
      */
     @Nullable
-    @JsonProperty("title")
     public String title;
 
     /**
      * Username, for private chats, supergroups and channels if available
      */
     @Nullable
-    @JsonProperty("username")
     public String username;
 
     /**
      * First name of the other party in a private chat
      */
     @Nullable
-    @JsonProperty("first_name")
     public String firstName;
 
     /**
      * Last name of the other party in a private chat
      */
     @Nullable
-    @JsonProperty("last_name")
     public String lastName;
 
     /**
@@ -59,7 +53,6 @@ public class Chat {
      * Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
      */
     @Nullable
-    @JsonProperty("photo")
     public ChatPhoto photo;
 
     /**
@@ -67,7 +60,6 @@ public class Chat {
      * Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
      */
     @Nullable
-    @JsonProperty("description")
     public String description;
 
     /**
@@ -78,7 +70,6 @@ public class Chat {
      * Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
      */
     @Nullable
-    @JsonProperty("invite_link")
     public String inviteLink;
 
     /**
@@ -86,7 +77,6 @@ public class Chat {
      * Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
      */
     @Nullable
-    @JsonProperty("pinned_message")
     public Message pinnedMessage;
 
     /**
@@ -94,7 +84,6 @@ public class Chat {
      * Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
      */
     @Nullable
-    @JsonProperty("permissions")
     public ChatPermissions permissions;
 
     /**
@@ -103,7 +92,6 @@ public class Chat {
      * Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
      */
     @Nullable
-    @JsonProperty("slow_mode_delay")
     public Integer slowModeDelay;
 
     /**
@@ -111,7 +99,6 @@ public class Chat {
      * Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
      */
     @Nullable
-    @JsonProperty("sticker_set_name")
     public String stickerSetName;
 
     /**
@@ -119,6 +106,5 @@ public class Chat {
      * Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
      */
     @Nullable
-    @JsonProperty("can_set_sticker_set")
     public Boolean canSetStickerSet;
 }

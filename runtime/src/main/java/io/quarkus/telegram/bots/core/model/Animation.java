@@ -1,6 +1,6 @@
 package io.quarkus.telegram.bots.core.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -9,13 +9,13 @@ import org.jetbrains.annotations.Nullable;
  *
  * @see <a href="https://core.telegram.org/bots/api#animation">Telegram Bot API</a>
  */
+@TelegramApiModel
 public class Animation {
 
     /**
      * Identifier for this file, which can be used to download or reuse the file
      */
     @NotNull
-    @JsonProperty("file_id")
     public String fileId;
 
     /**
@@ -23,55 +23,47 @@ public class Animation {
      * bots. Can't be used to download or reuse the file.
      */
     @NotNull
-    @JsonProperty("file_unique_id")
     public String fileUniqueId;
 
     /**
      * Video width as defined by sender
      */
     @NotNull
-    @JsonProperty("width")
     public Integer width;
 
     /**
      * Video height as defined by sender
      */
     @NotNull
-    @JsonProperty("height")
     public Integer height;
 
     /**
      * Duration of the video in seconds as defined by sender
      */
     @NotNull
-    @JsonProperty("duration")
     public Integer duration;
 
     /**
      * Animation thumbnail as defined by sender
      */
     @Nullable
-    @JsonProperty("thumb")
     public PhotoSize thumb;
 
     /**
      * Original animation filename as defined by sender
      */
     @Nullable
-    @JsonProperty("file_name")
     public String fileName;
 
     /**
      * MIME type of the file as defined by sender
      */
     @Nullable
-    @JsonProperty("mime_type")
     public String mimeType;
 
     /**
      * File size
      */
     @Nullable
-    @JsonProperty("file_size")
     public Integer fileSize;
 }

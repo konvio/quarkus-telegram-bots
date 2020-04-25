@@ -1,8 +1,7 @@
 package io.quarkus.telegram.bots.core.model;
 
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 import org.jetbrains.annotations.Nullable;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * This object represents type of a poll, which is allowed to be created and sent when the
@@ -10,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @see <a href="https://core.telegram.org/bots/api#keyboardbuttonpolltype">Telegram Bot API</a>
  */
+@TelegramApiModel
 public class KeyboardButtonPollType {
 
     /**
@@ -18,6 +18,5 @@ public class KeyboardButtonPollType {
      * Otherwise, the user will be allowed to create a poll of any type.
      */
     @Nullable
-    @JsonProperty("type")
     public String type;
 }

@@ -1,11 +1,10 @@
 package io.quarkus.telegram.bots.core.model;
 
-import java.util.List;
-
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 
 /**
  * This object represents a custom keyboard with reply options.
@@ -13,13 +12,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @see <a href="https://core.telegram.org/bots#keyboards">Introduction to bots</a>
  * @see <a href="https://core.telegram.org/bots/api#replykeyboardmarkup">Telegram Bot API</a>
  */
+@TelegramApiModel
 public class ReplyKeyboardMarkup {
 
     /**
      * Array of button rows, each represented by an Array of {@link KeyboardButton} objects
      */
     @NotNull
-    @JsonProperty("keyboard")
     public List<List<KeyboardButton>> keyboard;
 
     /**
@@ -28,7 +27,6 @@ public class ReplyKeyboardMarkup {
      * keyboard is always of the same height as the app's standard keyboard.
      */
     @Nullable
-    @JsonProperty("resize_keyboard")
     public Boolean resizeKeyboard;
 
     /**
@@ -38,7 +36,6 @@ public class ReplyKeyboardMarkup {
      * Defaults to false.
      */
     @Nullable
-    @JsonProperty("one_time_keyboard")
     public Boolean oneTimeKeyboard;
 
     /**
@@ -50,6 +47,5 @@ public class ReplyKeyboardMarkup {
      * a keyboard to select the new language. Other users in the group don’t see the keyboard.
      */
     @Nullable
-    @JsonProperty("selective")
     public Boolean selective;
 }

@@ -1,75 +1,66 @@
 package io.quarkus.telegram.bots.core.model;
 
-import java.util.List;
-
-import javax.validation.constraints.Size;
-
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * This object represents a message.
  *
  * @see <a href="https://core.telegram.org/bots/api#message">Telegram Bot API</a>
  */
+@TelegramApiModel
 public class Message {
 
     /**
      * Unique message identifier inside this chat
      */
     @NotNull
-    @JsonProperty("message_id")
     public Integer messageId;
 
     /**
      * Sender, empty for messages sent to channels
      */
     @Nullable
-    @JsonProperty("user")
     public User from;
 
     /**
      * Date the message was sent in Unix time
      */
     @NotNull
-    @JsonProperty("date")
     public Integer date;
 
     /**
      * Conversation the message belongs to
      */
     @NotNull
-    @JsonProperty("chat")
     public Chat chat;
 
     /**
      * For forwarded messages, sender of the original message
      */
     @Nullable
-    @JsonProperty("forward_from")
     public User forwardFrom;
 
     /**
      * For messages forwarded from channels, information about the original channel
      */
     @Nullable
-    @JsonProperty("forward_from_chat")
     public Chat forwardFromChat;
 
     /**
      * For messages forwarded from channels, identifier of the original message in the channel
      */
     @Nullable
-    @JsonProperty("forward_from_message_id")
     public Integer forwardFromMessageId;
 
     /**
      * For messages forwarded from channels, signature of the post author if present
      */
     @Nullable
-    @JsonProperty("forward_signature")
     public String forwardSignature;
 
     /**
@@ -77,14 +68,12 @@ public class Message {
      * in forwarded messages
      */
     @Nullable
-    @JsonProperty("forward_sender_name")
     public String forwardSenderName;
 
     /**
      * For forwarded messages, date the original message was sent in Unix time
      */
     @Nullable
-    @JsonProperty("forward_date")
     public Integer forwardDate;
 
     /**
@@ -92,28 +81,24 @@ public class Message {
      * contain further reply_to_message fields even if it itself is a reply.
      */
     @Nullable
-    @JsonProperty("reply_to_message")
     public Message replyToMessage;
 
     /**
      * Date the message was last edited in Unix time
      */
     @Nullable
-    @JsonProperty("edit_date")
     public Integer editDate;
 
     /**
      * The unique identifier of a media message group this message belongs to
      */
     @Nullable
-    @JsonProperty("media_group_id")
     public String mediaGroupId;
 
     /**
      * Signature of the post author for messages in channels
      */
     @Nullable
-    @JsonProperty("author_signature")
     public String authorSignature;
 
     /**
@@ -121,7 +106,7 @@ public class Message {
      */
     @Nullable
     @Size(max = 4096)
-    @JsonProperty("text")
+
     public String text;
 
     /**
@@ -129,7 +114,6 @@ public class Message {
      * appear in the text
      */
     @Nullable
-    @JsonProperty("entities")
     public List<MessageEntity> entities;
 
     /**
@@ -137,21 +121,18 @@ public class Message {
      * appear in the caption
      */
     @Nullable
-    @JsonProperty("caption_entities")
     public List<MessageEntity> captionEntities;
 
     /**
      * Message is an audio file, information about the file
      */
     @Nullable
-    @JsonProperty("audio")
     public Audio audio;
 
     /**
      * Message is a general file, information about the file
      */
     @Nullable
-    @JsonProperty("document")
     public Document document;
 
     /**
@@ -159,7 +140,6 @@ public class Message {
      * when this field is set, the document field will also be set
      */
     @Nullable
-    @JsonProperty("animation")
     public Animation animation;
 
     /**
@@ -168,35 +148,30 @@ public class Message {
      * @see <a href="https://core.telegram.org/bots/api#games">More about games</a>
      */
     @Nullable
-    @JsonProperty("game")
     public Game game;
 
     /**
      * Message is a photo, available sizes of the photo
      */
     @Nullable
-    @JsonProperty("photo")
     public List<PhotoSize> photo;
 
     /**
      * Message is a sticker, information about the sticker
      */
     @Nullable
-    @JsonProperty("sticker")
     public Sticker sticker;
 
     /**
      * Message is a video, information about the video
      */
     @Nullable
-    @JsonProperty("video")
     public Video video;
 
     /**
      * Message is a voice message, information about the file
      */
     @Nullable
-    @JsonProperty("voice")
     public Voice voice;
 
     /**
@@ -204,7 +179,6 @@ public class Message {
      * information about the video message
      */
     @Nullable
-    @JsonProperty("video_note")
     public VideoNote videoNote;
 
     /**
@@ -212,42 +186,37 @@ public class Message {
      */
     @Nullable
     @Size(max = 1024)
-    @JsonProperty("caption")
+
     public String caption;
 
     /**
      * Message is a shared contact, information about the contact
      */
     @Nullable
-    @JsonProperty("contact")
     public Contact contact;
 
     /**
      * Message is a shared location, information about the location
      */
     @Nullable
-    @JsonProperty("location")
     public Location location;
 
     /**
      * Message is a venue, information about the venue
      */
     @Nullable
-    @JsonProperty("venue")
     public Venue venue;
 
     /**
      * Message is a native poll, information about the poll
      */
     @Nullable
-    @JsonProperty("venue")
     public Poll poll;
 
     /**
      * Message is a dice with random value from 1 to 6
      */
     @Nullable
-    @JsonProperty("dice")
     public Dice dice;
 
     /**
@@ -255,7 +224,6 @@ public class Message {
      * (the bot itself may be one of these members)
      */
     @Nullable
-    @JsonProperty("new_chat_members")
     public List<User> newChatMembers;
 
     /**
@@ -263,35 +231,30 @@ public class Message {
      * (this member may be the bot itself)
      */
     @Nullable
-    @JsonProperty("left_chat_member")
     public User leftChatMember;
 
     /**
      * A chat title was changed to this value
      */
     @Nullable
-    @JsonProperty("new_chat_title")
     public String newChatTitle;
 
     /**
      * A chat photo was change to this value
      */
     @Nullable
-    @JsonProperty("new_chat_photo")
     public List<PhotoSize> newChatPhoto;
 
     /**
      * Service message: the chat photo was deleted
      */
     @Nullable
-    @JsonProperty("delete_chat_photo")
     public Boolean deleteChatPhoto;
 
     /**
      * Service message: the group has been created
      */
     @Nullable
-    @JsonProperty("group_chat_created")
     public Boolean groupChatCreated;
 
     /**
@@ -301,7 +264,6 @@ public class Message {
      * directly created supergroup.
      */
     @Nullable
-    @JsonProperty("supergroup_chat_created")
     public Boolean supergroupChatCreated;
 
     /**
@@ -311,21 +273,18 @@ public class Message {
      * channel.
      */
     @Nullable
-    @JsonProperty("group_chat_created")
     public Boolean channelChatCreated;
 
     /**
      * The group has been migrated to a supergroup with the specified identifier
      */
     @Nullable
-    @JsonProperty("migrate_to_chat_id")
     public Long migrateToChatId;
 
     /**
      * The supergroup has been migrated from a group with the specified identifier
      */
     @Nullable
-    @JsonProperty("migrate_from_chat_id")
     public Long migrateFromChatId;
 
     /**
@@ -333,7 +292,6 @@ public class Message {
      * further reply_to_message fields even if it is itself a reply.
      */
     @Nullable
-    @JsonProperty("pinned_message")
     public Message pinnedMessage;
 
     /**
@@ -342,7 +300,6 @@ public class Message {
      * @see <a href="https://core.telegram.org/bots/api#payments">More about payments</a>
      */
     @Nullable
-    @JsonProperty("invoice")
     public Invoice invoice;
 
     /**
@@ -351,7 +308,6 @@ public class Message {
      * @see <a href="https://core.telegram.org/bots/api#payments">More about payments</a>
      */
     @Nullable
-    @JsonProperty("successful_payment")
     public SuccessfulPayment successfulPayment;
 
     /**
@@ -360,14 +316,12 @@ public class Message {
      * <a href="https://core.telegram.org/widgets/login">More about Telegram Login</a>
      */
     @Nullable
-    @JsonProperty("connected_website")
     public String connectedWebsite;
 
     /**
      * Telegram Passport data
      */
     @Nullable
-    @JsonProperty("passport_data")
     public PassportData passportData;
 
     /**
@@ -375,6 +329,5 @@ public class Message {
      * login_url buttons are represented as ordinary url buttons.
      */
     @Nullable
-    @JsonProperty("reply_markup")
     public InlineKeyboardMarkup replyMarkup;
 }

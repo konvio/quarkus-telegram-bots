@@ -1,9 +1,8 @@
 package io.quarkus.telegram.bots.core.model;
 
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Upon receiving a message with this object, Telegram clients will remove the current custom
@@ -14,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @see <a href="https://core.telegram.org/bots/api#replykeyboardremove">Telegram Bot API</a>
  * @see ReplyKeyboardMarkup
  */
+@TelegramApiModel
 public class ReplyKeyboardRemove {
 
     /**
@@ -22,7 +22,6 @@ public class ReplyKeyboardRemove {
      * use {@link ReplyKeyboardMarkup#oneTimeKeyboard}
      */
     @NotNull
-    @JsonProperty("remove_keyboard")
     public Boolean removeKeyboard;
 
     /**
@@ -34,6 +33,5 @@ public class ReplyKeyboardRemove {
      * a keyboard to select the new language. Other users in the group don’t see the keyboard.
      */
     @Nullable
-    @JsonProperty("selective")
     public Boolean selective;
 }
