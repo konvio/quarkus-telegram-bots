@@ -12,9 +12,9 @@ import javax.ws.rs.core.MediaType;
 @Path("/bot{token}")
 @Produces(MediaType.APPLICATION_JSON)
 @RegisterRestClient(configKey = "telegram-bot-api", baseUri = "https://api.telegram.org")
-public interface TelegramBotApiRestClient {
+interface BotApiRestClient {
 
     @GET
     @Path("/getMe")
-    Uni<UserTelegramBotApiResponse> getMe(@PathParam("token") String token);
+    Uni<UserResponse> getMe(@PathParam("token") String token);
 }
