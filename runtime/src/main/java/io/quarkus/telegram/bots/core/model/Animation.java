@@ -1,9 +1,8 @@
 package io.quarkus.telegram.bots.core.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * This object represents an animation file (GIF or H.264/MPEG-4 AVC video without sound).
