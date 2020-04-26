@@ -1,8 +1,11 @@
 package io.quarkus.telegram.bots.core.model;
 
-import io.quarkus.telegram.bots.annotations.TelegramApiModel;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 
 /**
  * This object represents a video message.
@@ -11,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
  * @see <a href="https://telegram.org/blog/video-messages-and-telescope">Video Messages and Telescope</a>
  * @since v.4.0
  */
-@TelegramApiModel
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class VideoNote {
 
     /**

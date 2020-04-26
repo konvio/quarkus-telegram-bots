@@ -1,8 +1,11 @@
 package io.quarkus.telegram.bots.core.model;
 
-import io.quarkus.telegram.bots.annotations.TelegramApiModel;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 
 /**
  * Upon receiving a message with this object, Telegram clients will remove the current custom
@@ -13,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
  * @see <a href="https://core.telegram.org/bots/api#replykeyboardremove">Telegram Bot API</a>
  * @see ReplyKeyboardMarkup
  */
-@TelegramApiModel
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class ReplyKeyboardRemove {
 
     /**

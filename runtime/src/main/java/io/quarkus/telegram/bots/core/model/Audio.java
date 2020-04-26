@@ -1,15 +1,18 @@
 package io.quarkus.telegram.bots.core.model;
 
-import io.quarkus.telegram.bots.annotations.TelegramApiModel;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 
 /**
  * This object represents an audio file to be treated as music by the Telegram clients.
  *
  * @see <a href="https://core.telegram.org/bots/api#audio">Telegram Bot API</a>
  */
-@TelegramApiModel
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Audio {
 
     /**

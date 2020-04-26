@@ -1,9 +1,10 @@
 package io.quarkus.telegram.bots.core.client;
 
-import io.quarkus.telegram.bots.annotations.TelegramApiModel;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
-@TelegramApiModel
-abstract class BotApiResponse<T> {
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+public abstract class BotApiResponse<T> {
 
     public Boolean ok;
 

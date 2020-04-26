@@ -1,6 +1,7 @@
 package io.quarkus.telegram.bots.core.model;
 
-import io.quarkus.telegram.bots.annotations.TelegramApiModel;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.jetbrains.annotations.NotNull;
 
 import javax.validation.constraints.Size;
@@ -10,7 +11,7 @@ import javax.validation.constraints.Size;
  *
  * @see <a href="https://core.telegram.org/bots/api#polloption">Telegram Bot API</a>
  */
-@TelegramApiModel
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class PollOption {
 
     /**

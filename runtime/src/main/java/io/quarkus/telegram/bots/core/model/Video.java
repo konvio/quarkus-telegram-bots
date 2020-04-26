@@ -1,15 +1,18 @@
 package io.quarkus.telegram.bots.core.model;
 
-import io.quarkus.telegram.bots.annotations.TelegramApiModel;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 
 /**
  * This object represents a video file.
  *
  * @see <a href="https://core.telegram.org/bots/api#video">Telegram Bot API</a>
  */
-@TelegramApiModel
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Video {
 
     /**

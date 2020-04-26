@@ -1,16 +1,19 @@
 package io.quarkus.telegram.bots.core.model;
 
-import io.quarkus.telegram.bots.annotations.TelegramApiModel;
+import java.util.List;
+
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
+import io.quarkus.telegram.bots.annotations.TelegramApiModel;
 
 /**
  * This object represent a user's profile pictures.
  *
  * @see <a href="https://core.telegram.org/bots/api#userprofilephotos">Telegram Bot API</a>
  */
-@TelegramApiModel
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class UserProfilePhotos {
 
     /**
