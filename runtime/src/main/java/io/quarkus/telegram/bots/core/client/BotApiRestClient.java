@@ -10,8 +10,9 @@ import javax.ws.rs.core.MediaType;
 @Singleton
 @Path("/bot{token}")
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 @RegisterRestClient(configKey = "telegram-bot-api", baseUri = "https://api.telegram.org")
-public interface BotApiRestClient {
+public interface BotApiRestClient extends Runnable {
 
     @GET
     @Path("/getMe")
@@ -19,7 +20,6 @@ public interface BotApiRestClient {
 
     @POST
     @Path("/sendMessage")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     Uni<MessageResponse> sendMessage(@PathParam("token") String token,
                                      @FormParam("chat_id") Integer chatId,
                                      @FormParam("text") String text,

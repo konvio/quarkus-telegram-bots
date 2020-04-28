@@ -25,6 +25,11 @@ public class TelegramBotApi {
                 .produceUni(this::produceBotApiResponseUni);
     }
 
+    public SendMessageRequest sendMessage(String chatId) {
+        SendMessageRequest sendMessageRequest = new SendMessageRequest();
+        return sendMessageRequest;
+    }
+
     private <T> void produceBotApiResponseUni(BotApiResponse<T> botApiResponse, UniEmitter<? super T> uniEmitter) {
         if (botApiResponse.ok) {
             uniEmitter.complete(botApiResponse.result);
